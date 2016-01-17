@@ -303,9 +303,9 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     """
     username = models.CharField(
         _('username'),
-        max_length=30,
+        max_length=75,
         unique=True,
-        help_text=_('Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        help_text=_('Required. 75 characters or fewer. Letters, digits and @/./+/-/_ only.'),
         validators=[
             validators.RegexValidator(
                 r'^[\w.@+-]+$',
@@ -317,8 +317,8 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
             'unique': _("A user with that username already exists."),
         },
     )
-    first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=30, blank=True)
+    first_name = models.CharField(_('first name'), max_length=75, blank=True)
+    last_name = models.CharField(_('last name'), max_length=75, blank=True)
     email = models.EmailField(_('email address'), blank=True)
     is_staff = models.BooleanField(
         _('staff status'),
